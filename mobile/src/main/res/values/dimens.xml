@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<dimen name="global_keyline_16">16dp</dimen>
+	<dimen name="global_keyline_32">32dp</dimen>
+	<dimen name="global_keyline_72">72dp</dimen>
+
+	<dimen name="global_spacing_8">8dp</dimen>
+	<dimen name="global_spacing_16">16dp</dimen>
+	<dimen name="global_spacing_24">24dp</dimen>
+	<dimen name="global_spacing_32">32dp</dimen>
+	<dimen name="global_spacing_48">48dp</dimen>
+	<dimen name="global_spacing_56">56dp</dimen>
+	<dimen name="global_spacing_72">72dp</dimen>
+
+	<dimen name="global_elevation_2">2dp</dimen>
+	<dimen name="global_elevation_4">4dp</dimen>
+	<dimen name="global_elevation_6">6dp</dimen>
+	<dimen name="global_elevation_8">8dp</dimen>
+	<dimen name="global_elevation_12">12dp</dimen>
+	<dimen name="global_elevation_16">16dp</dimen>
+	<dimen name="global_elevation_24">24dp</dimen>
+
+	<dimen name="global_text_size_display_4">112sp</dimen>
+	<dimen name="global_text_size_display_3">56sp</dimen>
+	<dimen name="global_text_size_display_2">45sp</dimen>
+	<dimen name="global_text_size_display_1">34sp</dimen>
+	<dimen name="global_text_size_headline">24sp</dimen>
+	<dimen name="global_text_size_title">20sp</dimen>
+	<dimen name="global_text_size_subhead">18sp</dimen>
+	<dimen name="global_text_size_body_2">14sp</dimen>
+	<dimen name="global_text_size_body_1">14sp</dimen>
+	<dimen name="global_text_size_caption">12sp</dimen>
+	<dimen name="global_text_size_button">14sp</dimen>
+	<dimen name="global_text_size_menu">16sp</dimen>
+
+	<dimen name="activity_main_content_progress_bar_top_margin">-6dp</dimen>
+
+	<dimen name="fragment_today_temperature_text_size">74dp</dimen>
+	<dimen name="fragment_today_city_text_size">26dp</dimen>
+	<dimen name="fragment_today_precipitation_text_text_size">18dp</dimen>
+	<dimen name="fragment_forecast_row_item_weather_text_text_size">16dp</dimen>
+	<dimen name="fragment_forecast_row_item_temperature_text_size">13dp</dimen>
+	<dimen name="fragment_today_precipitation_icon_size">22dp</dimen>
+	<dimen name="precipitation_grey_oval_background_size">26dp</dimen>
+	<dimen name="precipitation_blue_oval_background_size">52dp</dimen>
+
+	<dimen name="custom_view_weather_parameter_icon_size">18dp</dimen>
+	<dimen name="custom_view_weather_parameter_icon_end_margin">8dp</dimen>
+
+	<dimen name="fragment_today_horizontal_padding">15dp</dimen>
+	<dimen name="fragment_today_weather_parameters_top_margin">20dp</dimen>
+	<dimen name="fragment_today_weather_parameters_bottom_margin">20dp</dimen>
+	<dimen name="fragment_today_grid_layout_row_padding">10dp</dimen>
+
+	<dimen name="fragment_forecast_row_item_icon_end_margin">14dp</dimen>
+	<dimen name="fragment_forecast_row_item_weather_icon_size">40dp</dimen>
+	<dimen name="fragment_forecast_row_item_padding">15dp</dimen>
+	<dimen name="fragment_forecast_row_item_main_weather_bottom_margin">5dp</dimen>
+
+	<dimen name="dialog_about_width">270dp</dimen>
+	<dimen name="dialog_about_height">280dp</dimen>
+
+</resources>

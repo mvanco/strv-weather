@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<style name="Widget.STRVWeather.Toolbar" parent="@style/Widget.AppCompat.Toolbar">
+		<item name="android:background">?attr/colorPrimary</item>
+		<item name="android:theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+		<item name="popupTheme">@style/Widget.STRVWeather.ToolbarPopupTheme</item>
+	</style>
+
+	<style name="Widget.STRVWeather.ToolbarPopupTheme" parent="@style/ThemeOverlay.AppCompat.Light">
+		<item name="android:colorBackground">#eeeeee</item>
+	</style>
+
+	<style name="TextAppearance.STRVWeather.Display4" parent="@style/TextAppearance.AppCompat.Display4">
+		<item name="android:textSize">@dimen/global_text_size_display_4</item>
+		<item name="android:textColor">?android:textColorSecondary</item>
+	</style>
+
+	<style name="TextAppearance.STRVWeather.Display3" parent="@style/TextAppearance.AppCompat.Display3">
+		<item name="android:textSize">@dimen/global_text_size_display_3</item>
+		<item name="android:textColor">?android:textColorSecondary</item>
+	</style>
+
+	<style name="TextAppearance.STRVWeather.Display2" parent="@style/TextAppearance.AppCompat.Display2">
+		<item name="android:textSize">@dimen/global_text_size_display_2</item>
+		<item name="android:textColor">?android:textColorSecondary</item>
+	</style>
+
+	<style name="TextAppearance.STRVWeather.Display1" parent="@style/TextAppearance.AppCompat.Display1">
+		<item name="android:textSize">@dimen/global_text_size_display_1</item>
+		<item name="android:textColor">?android:textColorSecondary</item>
+	</style>
+
+	<style name="TextAppearance.STRVWeather.Headline" parent="@style/TextAppearance.AppCompat.Headline">
+		<item name="android:textSize">@dimen/global_text_size_headline</item>
+		<item name="android:textColor">?android:textColorPrimary</item>
+	</style>
+
+	<style name="TextAppearance.STRVWeather.Title" parent="@style/TextAppearance.AppCompat.Title">
+		<item name="android:textSize">@dimen/global_text_size_title</item>
+		<item name="android:textColor">?android:textColorPrimary</item>
+	</style>
+
+	<style name="TextAppearance.STRVWeather.Subhead" parent="@style/TextAppearance.AppCompat.Subhead">
+		<item name="android:textSize">@dimen/global_text_size_subhead</item>
+		<item name="android:textColor">@color/global_text_secondary</item>
+		<item name="android:fontFamily">sans-serif</item>
+	</style>
+
+	<style name="TextAppearance.STRVWeather.Body2" parent="@style/TextAppearance.AppCompat.Body2">
+		<item name="android:textSize">@dimen/global_text_size_body_2</item>
+		<item name="android:textColor">?android:textColorPrimary</item>
+	</style>
+
+	<style name="TextAppearance.STRVWeather.Body1" parent="@style/TextAppearance.AppCompat.Body1">
+		<item name="android:textSize">@dimen/global_text_size_body_1</item>
+		<item name="android:textColor">?android:textColorPrimary</item>
+	</style>
+
+	<style name="TextAppearance.STRVWeather.Caption" parent="@style/TextAppearance.AppCompat.Caption">
+		<item name="android:textSize">@dimen/global_text_size_caption</item>
+		<item name="android:textColor">?android:textColorSecondary</item>
+	</style>
+
+	<style name="TextAppearance.STRVWeather.Button" parent="@style/TextAppearance.AppCompat.Button">
+		<item name="android:textSize">@dimen/global_text_size_button</item>
+		<item name="android:textColor">?android:textColorPrimary</item>
+		<item name="textAllCaps">true</item>
+	</style>
+
+	<style name="TextAppearance.STRVWeather.Menu" parent="@style/TextAppearance.AppCompat.Menu">
+		<item name="android:textSize">@dimen/global_text_size_menu</item>
+		<item name="android:textColor">?android:textColorPrimary</item>
+	</style>
+
+	<style name="TextAppearance.STRVWeather.Display4.Inverse" parent="@style/TextAppearance.STRVWeather.Display4">
+		<item name="android:textColor">?android:attr/textColorSecondaryInverse</item>
+		<item name="android:textColorHint">?android:attr/textColorHintInverse</item>
+		<item name="android:textColorHighlight">?android:attr/textColorHighlightInverse</item>
+		<item name="android:textColorLink">?android:attr/textColorLinkInverse</item>
+	</style>
+
+	<style name="TextAppearance.STRVWeather.Display3.Inverse" parent="@style/TextAppearance.STRVWeather.Display3">
+		<item name="android:textColor">?android:attr/textColorSecondaryInverse</item>
+		<item name="android:textColorHint">?android:attr/textColorHintInverse</item>
+		<item name="android:textColorHighlight">?android:attr/textColorHighlightInverse</item>
+		<item name="android:textColorLink">?android:attr/textColorLinkInverse</item>
+	</style>
+
+	<style name="TextAppearance.STRVWeather.Display2.Inverse" parent="@style/TextAppearance.STRVWeather.Display2">
+		<item name="android:textColor">?android:attr/textColorSecondaryInverse</item>
+		<item name="android:textColorHint">?android:attr/textColorHintInverse</item>
+		<item name="android:textColorHighlight">?android:attr/textColorHighlightInverse</item>
+		<item name="android:textColorLink">?android:attr/textColorLinkInverse</item>
+	</style>
+
+	<style name="TextAppearance.STRVWeather.Display1.Inverse" parent="@style/TextAppearance.STRVWeather.Display1">
+		<item name="android:textColor">?android:attr/textColorSecondaryInverse</item>
+		<item name="android:textColorHint">?android:attr/textColorHintInverse</item>
+		<item name="android:textColorHighlight">?android:attr/textColorHighlightInverse</item>
+		<item name="android:textColorLink">?android:attr/textColorLinkInverse</item>
+	</style>
+
+	<style name="TextAppearance.STRVWeather.Headline.Inverse" parent="@style/TextAppearance.STRVWeather.Headline">
+		<item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+		<item name="android:textColorHint">?android:attr/textColorHintInverse</item>
+		<item name="android:textColorHighlight">?android:attr/textColorHighlightInverse</item>
+		<item name="android:textColorLink">?android:attr/textColorLinkInverse</item>
+	</style>
+
+	<style name="TextAppearance.STRVWeather.Title.Inverse" parent="@style/TextAppearance.STRVWeather.Title">
+		<item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+		<item name="android:textColorHint">?android:attr/textColorHintInverse</item>
+		<item name="android:textColorHighlight">?android:attr/textColorHighlightInverse</item>
+		<item name="android:textColorLink">?android:attr/textColorLinkInverse</item>
+	</style>
+
+	<style name="TextAppearance.STRVWeather.Subhead.Inverse" parent="@style/TextAppearance.STRVWeather.Subhead">
+		<item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+		<item name="android:textColorHint">?android:attr/textColorHintInverse</item>
+		<item name="android:textColorHighlight">?android:attr/textColorHighlightInverse</item>
+		<item name="android:textColorLink">?android:attr/textColorLinkInverse</item>
+	</style>
+
+	<style name="TextAppearance.STRVWeather.Body2.Inverse" parent="@style/TextAppearance.STRVWeather.Body2">
+		<item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+		<item name="android:textColorHint">?android:attr/textColorHintInverse</item>
+		<item name="android:textColorHighlight">?android:attr/textColorHighlightInverse</item>
+		<item name="android:textColorLink">?android:attr/textColorLinkInverse</item>
+	</style>
+
+	<style name="TextAppearance.STRVWeather.Body1.Inverse" parent="@style/TextAppearance.STRVWeather.Body1">
+		<item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+		<item name="android:textColorHint">?android:attr/textColorHintInverse</item>
+		<item name="android:textColorHighlight">?android:attr/textColorHighlightInverse</item>
+		<item name="android:textColorLink">?android:attr/textColorLinkInverse</item>
+	</style>
+
+	<style name="TextAppearance.STRVWeather.Caption.Inverse" parent="@style/TextAppearance.STRVWeather.Caption">
+		<item name="android:textColor">?android:attr/textColorSecondaryInverse</item>
+		<item name="android:textColorHint">?android:attr/textColorHintInverse</item>
+		<item name="android:textColorHighlight">?android:attr/textColorHighlightInverse</item>
+		<item name="android:textColorLink">?android:attr/textColorLinkInverse</item>
+	</style>
+
+	<style name="TextAppearance.STRVWeather.Button.Inverse" parent="@style/TextAppearance.STRVWeather.Button">
+		<item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+		<item name="android:textColorHint">?android:attr/textColorHintInverse</item>
+		<item name="android:textColorHighlight">?android:attr/textColorHighlightInverse</item>
+		<item name="android:textColorLink">?android:attr/textColorLinkInverse</item>
+	</style>
+
+	<style name="TextAppearance.STRVWeather.Menu.Inverse" parent="@style/TextAppearance.STRVWeather.Menu">
+		<item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+		<item name="android:textColorHint">?android:attr/textColorHintInverse</item>
+		<item name="android:textColorHighlight">?android:attr/textColorHighlightInverse</item>
+		<item name="android:textColorLink">?android:attr/textColorLinkInverse</item>
+	</style>
+
+	<style name="TodayFragmentText">
+		<item name="android:fontFamily">sans-serif-light</item>
+		<item name="android:textColor">@android:color/white</item>
+	</style>
+
+	<style name="TodayFragmentText.Temperature">
+		<item name="android:textSize">@dimen/fragment_today_temperature_text_size</item>
+	</style>
+
+	<style name="TodayFragmentText.City">
+		<item name="android:textSize">@dimen/fragment_today_city_text_size</item>
+	</style>
+
+	<style name="TodayFragmentText.PrecipitationText">
+		<item name="android:textSize">@dimen/fragment_today_precipitation_text_text_size</item>
+	</style>
+
+	<style name="ForecastFragmentWeatherText">
+		<item name="android:textColor">@android:color/black</item>
+		<item name="android:textSize">@dimen/fragment_forecast_row_item_weather_text_text_size</item>
+	</style>
+
+	<style name="ForecastFragmentTemperature">
+		<item name="android:textSize">@dimen/fragment_forecast_row_item_temperature_text_size</item>
+		<item name="android:fontFamily">sans-serif</item>
+		<item name="android:textStyle">normal</item>
+		<item name="android:textColor">@color/global_color_primary_dark</item>
+	</style>
+
+</resources>
