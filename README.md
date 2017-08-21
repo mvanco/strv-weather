@@ -10,9 +10,9 @@ Installation
 
 Usage
 =====
-gradlew assembleDebug           Build debug APK
-gradlew assembleRelease         Build release APK
-gradlew test                    Run local unit test
+gradlew assembleDebug           Build debug APK  
+gradlew assembleRelease         Build release APK  
+gradlew test                    Run local unit test  
 gradlew connectedAndroidTest    Run instrumented unit test
 
 Developed by
