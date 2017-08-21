@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.matusvanco.weather.android.utility.ConversionUtility"/>
+
+        <variable
+            name="view" type="com.matusvanco.weather.android.ui.TodayView"/>
+
+        <variable
+            name="viewModel" type="com.matusvanco.weather.android.viewmodel.TodayViewModel"/>
+
+    </data>
+
+    <org.alfonz.view.StatefulLayout
+        android:id="@+id/fragment_hello_world_stateful_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        app:emptyLayout="@layout/placeholder_empty"
+        app:offlineLayout="@layout/placeholder_offline"
+        app:progressLayout="@layout/placeholder_progress"
+        app:state="@{viewModel.state}">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/fragment_today_background"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toTopOf="@+id/fragment_today_guideline"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/brno"
+                style="@style/TodayFragmentText.City"
+                tools:style="@style/TodayFragmentText.City"/>
+
+            <TextView
+                android:id="@+id/fragment_today_city"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
+                android:text="@{viewModel.city}"
+                app:layout_constraintBottom_toTopOf="@+id/fragment_today_precipitation_text"
+                app:layout_constraintLeft_toLeftOf="parent"
+                style="@style/TodayFragmentText.City"
+                tools:text="San Francisco"/>
+
+            <android.support.v7.widget.GridLayout
+                android:id="@+id/fragment_today_grid_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="@dimen/fragment_today_horizontal_padding"
+                android:layout_marginRight="@dimen/fragment_today_horizontal_padding"
+                android:layout_marginTop="8dp"
+                app:columnCount="3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/fragment_today_guideline">
+
+                <com.matusvanco.weather.android.widget.WeatherParameter
+                    android:id="@+id/fragment_today_weather_parameter_humidity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/fragment_today_grid_layout_row_padding"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill"
+                    app:weatherIcon="@drawable/ic_weather_humidity"
+                    app:weatherText="@{String.valueOf(Math.round(viewModel.currentWeather.main.humidity))}"
+                    app:weatherUnitFor="humidity"/>
+
+                <com.matusvanco.weather.android.widget.WeatherParameter
+                    android:id="@+id/fragment_today_weather_parameter_precipitation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/fragment_today_grid_layout_row_padding"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill"
+                    app:weatherIcon="@drawable/ic_weather_precipitation"
+                    app:weatherText="@{String.valueOf(Math.round(viewModel.currentWeather.rain.rainForecast))}"
+                    app:weatherUnitFor="precipitation"/>
+
+                <com.matusvanco.weather.android.widget.WeatherParameter
+                    android:id="@+id/fragment_today_weather_parameter_pressure"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/fragment_today_grid_layout_row_padding"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill"
+                    app:weatherIcon="@drawable/ic_weather_pressure"
+                    app:weatherText="@{String.valueOf(Math.round(viewModel.currentWeather.main.pressure))}"
+                    app:weatherUnitFor="pressure"/>
+
+                <com.matusvanco.weather.android.widget.WeatherParameter
+                    android:id="@+id/fragment_today_weather_parameter_wind"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/fragment_today_grid_layout_row_padding"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill"
+                    app:weatherIcon="@drawable/ic_weather_wind"
+                    app:weatherText="@{ConversionUtility.convertSpeed(viewModel.currentWeather.wind.speed, viewModel.temperatureUnit, viewModel.lengthUnit)}"
+                    app:weatherUnitFor="wind"/>
+
+                <com.matusvanco.weather.android.widget.WeatherParameter
+                    android:id="@+id/fragment_today_weather_parameter_direction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/fragment_today_grid_layout_row_padding"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill"
+                    app:weatherIcon="@drawable/ic_weather_direction"
+                    app:weatherText="@{viewModel.currentWeather.wind.textDeg}"
+                    app:weatherUnitFor="direction"/>
+
+            </android.support.v7.widget.GridLayout>
+
+            <TextView
+                android:id="@+id/fragment_today_precipitation_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:text="@{viewModel.currentWeather.get().getWeather().get(0).getMain()}"
+                app:layout_constraintBottom_toBottomOf="@+id/fragment_today_image_container"
+                app:layout_constraintLeft_toRightOf="@+id/fragment_today_image_container"
+                app:layout_constraintTop_toTopOf="@+id/fragment_today_image_container"
+                style="@style/TodayFragmentText.PrecipitationText"
+                tools:text="Clear"/>
+
+            <RelativeLayout
+                android:id="@+id/fragment_today_image_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="0dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/fragment_today_guideline"
+                app:layout_constraintLeft_toLeftOf="@+id/fragment_today_city"
+                app:layout_constraintTop_toTopOf="@+id/fragment_today_background"
+                app:layout_constraintVertical_bias="0.85">
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/fragment_today_precipitation_background"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/precipitation_grey_oval_background"/>
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/fragment_today_precipitation_icon"
+                    android:layout_width="@dimen/fragment_today_precipitation_icon_size"
+                    android:layout_height="@dimen/fragment_today_precipitation_icon_size"
+                    android:layout_centerInParent="true"
+                    app:weatherImageUrl='@{viewModel.currentWeather.getWeather().get(0).getIcon()}'/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/fragment_today_temperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="8dp"
+                android:text="@{String.valueOf(Math.round(viewModel.currentWeather.main.temp)) + '°'}"
+                app:layout_constraintBottom_toBottomOf="@+id/fragment_today_precipitation_text"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/fragment_today_city"
+                style="@style/TodayFragmentText.Temperature"
+                tools:text="15°"/>
+
+            <android.support.constraint.Guideline
+                android:id="@+id/fragment_today_guideline"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.78"/>
+        </android.support.constraint.ConstraintLayout>
+    </org.alfonz.view.StatefulLayout>
+</layout>

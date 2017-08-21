@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="org.alfonz.adapter.utility.BindingUtility"/>
+
+        <variable
+            name="view" type="com.matusvanco.weather.android.ui.ForecastView"/>
+
+        <variable
+            name="viewModel" type="com.matusvanco.weather.android.viewmodel.ForecastViewModel"/>
+    </data>
+
+    <org.alfonz.view.StatefulLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        app:emptyLayout="@layout/placeholder_empty"
+        app:offlineLayout="@layout/placeholder_offline"
+        app:progressLayout="@layout/placeholder_progress"
+        app:state="@{viewModel.state}">
+
+        <FrameLayout
+            android:id="@+id/fragment_forecast_content_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/fragment_forecast_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical"
+                app:recyclerAnimator="@{BindingUtility.ANIMATOR_DEFAULT}"
+                app:recyclerDecoration="@{BindingUtility.DECORATION_LINEAR_DIVIDER_VERTICAL}"
+                app:recyclerLayout="@{BindingUtility.LAYOUT_LINEAR_VERTICAL}">
+
+            </android.support.v7.widget.RecyclerView>
+        </FrameLayout>
+    </org.alfonz.view.StatefulLayout>
+</layout>
