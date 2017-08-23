@@ -23,17 +23,17 @@ import android.view.View;
 
 import com.matusvanco.weather.android.R;
 import com.matusvanco.weather.android.STRVWeatherConfig;
-import com.matusvanco.weather.android.databinding.ActivityDashboardBinding;
+import com.matusvanco.weather.android.databinding.ActivityMainBinding;
 import com.matusvanco.weather.android.dialog.AboutDialogFragment;
 import com.matusvanco.weather.android.fragment.ForecastFragment;
 import com.matusvanco.weather.android.fragment.TodayFragment;
-import com.matusvanco.weather.android.ui.DashboardView;
-import com.matusvanco.weather.android.viewmodel.DashboardViewModel;
+import com.matusvanco.weather.android.ui.MainView;
+import com.matusvanco.weather.android.viewmodel.MainViewModel;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
-public class MainActivity extends BaseBindingActivity<DashboardView, DashboardViewModel, ActivityDashboardBinding> implements DashboardView
+public class MainActivity extends BaseBindingActivity<MainView, MainViewModel, ActivityMainBinding> implements MainView
 {
 	/**
 	 * Key for the {@code mFragmentType} field.
@@ -100,9 +100,9 @@ public class MainActivity extends BaseBindingActivity<DashboardView, DashboardVi
 
 
 	@Override
-	public ActivityDashboardBinding inflateBindingLayout(LayoutInflater inflater)
+	public ActivityMainBinding inflateBindingLayout(LayoutInflater inflater)
 	{
-		return ActivityDashboardBinding.inflate(inflater);
+		return ActivityMainBinding.inflate(inflater);
 	}
 
 
@@ -118,7 +118,7 @@ public class MainActivity extends BaseBindingActivity<DashboardView, DashboardVi
 	@Override
 	public Class getViewModelClass()
 	{
-		return DashboardViewModel.class;
+		return MainViewModel.class;
 	}
 
 
