@@ -46,7 +46,7 @@ public class MainActivity extends BaseBindingActivity<DashboardView, DashboardVi
 	/**
 	 * Type of fragment which should be currently shown.
 	 */
-	private	@MainActivityFragmentType int mFragmentType;
+	private @MainActivityFragmentType int mFragmentType;
 
 	@Retention(RetentionPolicy.SOURCE)
 	@IntDef({R.id.nav_today, R.id.nav_forecast})
@@ -88,6 +88,84 @@ public class MainActivity extends BaseBindingActivity<DashboardView, DashboardVi
 			mFragmentType = savedInstanceState.getInt(FRAGMENT_TYPE_KEY);
 			selectDrawerItem(mFragmentType);
 		}
+	}
+
+
+	@Override
+	public void onResume()
+	{
+		super.onResume();
+		setTitle();
+	}
+
+
+	@Override
+	public ActivityDashboardBinding inflateBindingLayout(LayoutInflater inflater)
+	{
+		return ActivityDashboardBinding.inflate(inflater);
+	}
+
+
+	@Override
+	public void onSaveInstanceState(@NonNull Bundle outState)
+	{
+		super.onSaveInstanceState(outState);
+		outState.putInt(FRAGMENT_TYPE_KEY, mFragmentType);
+	}
+
+
+	@Nullable
+	@Override
+	public Class getViewModelClass()
+	{
+		return DashboardViewModel.class;
+	}
+
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu)
+	{
+		getMenuInflater().inflate(R.menu.activity_dashboard_toolbar, menu);
+		return true;
+	}
+
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item)
+	{
+		switch (item.getItemId())
+		{
+			case R.id.action_settings:
+				startActivity(SettingsActivity.newIntent(this));
+				break;
+			case R.id.action_about:
+				showAboutDialogFragment();
+				break;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+
+
+	@Override
+	public void onBackPressed()
+	{
+		DrawerLayout drawer = (DrawerLayout) findViewById(R.id.activity_main_drawer_layout);
+		if (drawer.isDrawerOpen(GravityCompat.START))
+		{
+			drawer.closeDrawer(GravityCompat.START);
+		}
+		else
+		{
+			super.onBackPressed();
+		}
+	}
+
+
+	@Override
+	public void onConfigurationChanged(Configuration newConfig)
+	{
+		super.onConfigurationChanged(newConfig);
+		mToggle.onConfigurationChanged(newConfig);
 	}
 
 
@@ -139,85 +217,6 @@ public class MainActivity extends BaseBindingActivity<DashboardView, DashboardVi
 	}
 
 
-	@Override
-	public void onResume()
-	{
-		super.onResume();
-		setTitle();
-	}
-
-
-	@Override
-	public void onSaveInstanceState(@NonNull Bundle outState)
-	{
-		super.onSaveInstanceState(outState);
-		outState.putInt(FRAGMENT_TYPE_KEY, mFragmentType);
-	}
-
-
-	@Override
-	public ActivityDashboardBinding inflateBindingLayout(LayoutInflater inflater)
-	{
-		return ActivityDashboardBinding.inflate(inflater);
-	}
-
-
-	@Nullable
-	@Override
-	public Class getViewModelClass()
-	{
-		return DashboardViewModel.class;
-	}
-
-
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu)
-	{
-		getMenuInflater().inflate(R.menu.activity_dashboard_toolbar, menu);
-		return true;
-	}
-
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item)
-	{
-		switch (item.getItemId())
-		{
-			case R.id.action_settings:
-				startActivity(SettingsActivity.newIntent(this));
-				break;
-			case R.id.action_about:
-				showAboutDialogFragment();
-				break;
-		}
-		return super.onOptionsItemSelected(item);
-	}
-
-
-	@Override
-	public void onBackPressed()
-	{
-		DrawerLayout drawer = (DrawerLayout) findViewById(R.id.activity_main_drawer_layout);
-		if (drawer.isDrawerOpen(GravityCompat.START))
-		{
-			drawer.closeDrawer(GravityCompat.START);
-		}
-		else
-		{
-			super.onBackPressed();
-		}
-	}
-
-
-	@Override
-	public void onConfigurationChanged(Configuration newConfig)
-	{
-		super.onConfigurationChanged(newConfig);
-		mToggle.onConfigurationChanged(newConfig);
-	}
-
-
 	private void setupActionBar()
 	{
 		setSupportActionBar(getBinding().activityMainToolbar);
@@ -229,6 +228,7 @@ public class MainActivity extends BaseBindingActivity<DashboardView, DashboardVi
 		getBinding().activityMainDrawerLayout.addDrawerListener(createDrawerListener());
 		mToggle.syncState();
 	}
+
 
 	private DrawerListener createDrawerListener()
 	{
@@ -279,7 +279,9 @@ public class MainActivity extends BaseBindingActivity<DashboardView, DashboardVi
 	}
 
 
-	private @StringRes int getTitleRes()
+	private
+	@StringRes
+	int getTitleRes()
 	{
 		switch (mFragmentType)
 		{

@@ -97,8 +97,6 @@ public class TempEntity
 	}
 
 
-
-
 	public String getFormattedEmptyTemp(@TemperatureUnit int temperatureUnit)
 	{
 		return "- " + ConversionUtility.getTemperatureSign(temperatureUnit);

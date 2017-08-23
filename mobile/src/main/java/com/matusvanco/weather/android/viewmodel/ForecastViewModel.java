@@ -62,6 +62,13 @@ public class ForecastViewModel extends BaseViewModel<ForecastView>
 	}
 
 
+	public void onTemperatureChanged(int temperatureUnit)
+	{
+		this.temperatureUnit.set(temperatureUnit);
+		loadData();
+	}
+
+
 	private void loadData()
 	{
 		if (NetworkUtility.isOnline(getApplicationContext()))
@@ -89,13 +96,6 @@ public class ForecastViewModel extends BaseViewModel<ForecastView>
 			// show offline
 			state.set(StatefulLayout.OFFLINE);
 		}
-	}
-
-
-	public void onTemperatureChanged(int temperatureUnit)
-	{
-		this.temperatureUnit.set(temperatureUnit);
-		loadData();
 	}
 
 

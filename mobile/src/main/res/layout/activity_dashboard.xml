@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <data></data>
+	<data></data>
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+	<FrameLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
 
-        <android.support.v4.widget.DrawerLayout
-            android:id="@+id/activity_main_drawer_layout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+		<android.support.v4.widget.DrawerLayout
+			android:id="@+id/activity_main_drawer_layout"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
 
-            <include
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="?attr/actionBarSize"
-                layout="@layout/activity_dashboard_content"/>
+			<include
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:layout_marginTop="?attr/actionBarSize"
+				layout="@layout/activity_dashboard_content"/>
 
-            <android.support.design.widget.NavigationView
-                android:id="@+id/activity_main_nav_view"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="start"
-                android:layout_marginTop="?attr/actionBarSize"
-                app:itemIconTint="@color/global_color_control_normal"
-                app:itemTextColor="@color/global_text_primary"
-                app:menu="@menu/activity_dashboard_navigation_view"/>
+			<android.support.design.widget.NavigationView
+				android:id="@+id/activity_main_nav_view"
+				android:layout_width="wrap_content"
+				android:layout_height="match_parent"
+				android:layout_gravity="start"
+				android:layout_marginTop="?attr/actionBarSize"
+				app:itemIconTint="@color/global_color_control_normal"
+				app:itemTextColor="@color/global_text_primary"
+				app:menu="@menu/activity_dashboard_navigation_view"/>
 
-        </android.support.v4.widget.DrawerLayout>
+		</android.support.v4.widget.DrawerLayout>
 
-        <android.support.design.widget.AppBarLayout
-            android:id="@+id/activity_main_app_bar_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+		<android.support.design.widget.AppBarLayout
+			android:id="@+id/activity_main_app_bar_layout"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
 
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/activity_main_toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                style="@style/Widget.STRVWeather.Toolbar"/>
+			<android.support.v7.widget.Toolbar
+				android:id="@+id/activity_main_toolbar"
+				android:layout_width="match_parent"
+				android:layout_height="?attr/actionBarSize"
+				style="@style/Widget.STRVWeather.Toolbar"/>
 
-        </android.support.design.widget.AppBarLayout>
-    </FrameLayout>
+		</android.support.design.widget.AppBarLayout>
+	</FrameLayout>
 </layout>

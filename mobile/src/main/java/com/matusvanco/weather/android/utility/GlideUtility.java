@@ -1,6 +1,5 @@
 package com.matusvanco.weather.android.utility;
 
-import android.util.Log;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;

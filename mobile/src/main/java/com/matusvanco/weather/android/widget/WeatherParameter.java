@@ -46,6 +46,42 @@ public class WeatherParameter extends LinearLayout
 	}
 
 
+	public WeatherParameter(Context context, @Nullable AttributeSet attrs)
+	{
+		super(context, attrs);
+		init(context, attrs);
+	}
+
+
+	public void setWeatherText(String text)
+	{
+		if (text == null)
+		{
+			return;
+		}
+		String unitSuffix = "";
+		switch (weatherUnit)
+		{
+			case WEATHER_UNIT_HUMIDITY:
+				unitSuffix = "%";
+				break;
+			case WEATHER_UNIT_PRECIPITATION:
+				unitSuffix = " mm";
+				break;
+			case WEATHER_UNIT_PRESSURE:
+				unitSuffix = " hPa";
+				break;
+			case WEATHER_UNIT_WIND:
+			case WEATHER_UNIT_DIRECTION:
+				unitSuffix = "";
+				break;
+		}
+
+		textView = (TextView) findViewById(R.id.fragment_today_weather_parameter_text);
+		textView.setText(text + unitSuffix);
+	}
+
+
 	private void init(Context context, AttributeSet attrs)
 	{
 		setupParentView();
@@ -89,41 +125,5 @@ public class WeatherParameter extends LinearLayout
 			imageView = (ImageView) findViewById(R.id.fragment_today_weather_parameter_icon);
 			imageView.setImageDrawable(icon);
 		}
-	}
-
-
-	public void setWeatherText(String text)
-	{
-		if (text == null)
-		{
-			return;
-		}
-		String unitSuffix = "";
-		switch (weatherUnit)
-		{
-			case WEATHER_UNIT_HUMIDITY:
-				unitSuffix = "%";
-				break;
-			case WEATHER_UNIT_PRECIPITATION:
-				unitSuffix = " mm";
-				break;
-			case WEATHER_UNIT_PRESSURE:
-				unitSuffix = " hPa";
-				break;
-			case WEATHER_UNIT_WIND:
-			case WEATHER_UNIT_DIRECTION:
-				unitSuffix = "";
-				break;
-		}
-
-		textView = (TextView) findViewById(R.id.fragment_today_weather_parameter_text);
-		textView.setText(text + unitSuffix);
-	}
-
-
-	public WeatherParameter(Context context, @Nullable AttributeSet attrs)
-	{
-		super(context, attrs);
-		init(context, attrs);
 	}
 }

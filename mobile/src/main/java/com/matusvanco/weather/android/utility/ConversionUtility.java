@@ -29,6 +29,7 @@ public final class ConversionUtility
 	{
 	}
 
+
 	public ConversionUtility()
 	{
 	}
