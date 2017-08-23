@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.databinding.ObservableArrayList;
 import android.databinding.ObservableInt;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.preference.PreferenceManager;
 
 import com.matusvanco.weather.android.STRVWeatherApplication;
@@ -35,6 +37,25 @@ public class ForecastViewModel extends BaseViewModel<ForecastView>
 	public final ObservableInt temperatureUnit = new ObservableInt();
 
 	private RestRxManager mRestRxManager = new RestRxManager(new RestResponseHandler(), new RestHttpLogger());
+	private SharedPreferences mSharedPreferences;
+
+	private SharedPreferences.OnSharedPreferenceChangeListener mOnSharedPreferenceChangeListener =
+			(prefs, key) ->
+			{
+				if (key.equals(SettingsFragment.TEMPERATURE_LIST_PREFERENCE_KEY))
+				{
+					onTemperatureChanged(Integer.valueOf(prefs.getString(SettingsFragment.TEMPERATURE_LIST_PREFERENCE_KEY, "0")));
+				}
+			};
+
+
+	@Override
+	public void onCreate(@Nullable Bundle arguments, @Nullable Bundle savedInstanceState)
+	{
+		super.onCreate(arguments, savedInstanceState);
+		mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+		mSharedPreferences.registerOnSharedPreferenceChangeListener(mOnSharedPreferenceChangeListener);
+	}
 
 
 	@Override
@@ -42,7 +63,6 @@ public class ForecastViewModel extends BaseViewModel<ForecastView>
 	{
 		super.onStart();
 
-		SharedPreferences mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 		int currentTemperatureUnit = Integer.valueOf(mSharedPreferences.getString(SettingsFragment.TEMPERATURE_LIST_PREFERENCE_KEY, "0"));
 		if (forecastItems.isEmpty() || currentTemperatureUnit != temperatureUnit.get())
 		{

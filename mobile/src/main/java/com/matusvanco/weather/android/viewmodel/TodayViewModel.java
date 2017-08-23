@@ -35,6 +35,7 @@ public class TodayViewModel extends BaseViewModel<TodayView>
 	public final ObservableInt lengthUnit = new ObservableInt(STRVWeatherConfig.LENGTH_UNIT_DEFAULT);
 
 	private RestRxManager mRestRxManager = new RestRxManager(new RestResponseHandler(), new RestHttpLogger());
+	private SharedPreferences mSharedPreferences;
 
 	private SharedPreferences.OnSharedPreferenceChangeListener mOnSharedPreferenceChangeListener =
 			(prefs, key) ->
@@ -54,7 +55,7 @@ public class TodayViewModel extends BaseViewModel<TodayView>
 	public void onCreate(@Nullable Bundle arguments, @Nullable Bundle savedInstanceState)
 	{
 		super.onCreate(arguments, savedInstanceState);
-		SharedPreferences mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+		mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 		mSharedPreferences.registerOnSharedPreferenceChangeListener(mOnSharedPreferenceChangeListener);
 	}
 
@@ -63,8 +64,7 @@ public class TodayViewModel extends BaseViewModel<TodayView>
 	public void onStart()
 	{
 		super.onStart();
-
-		SharedPreferences mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+		
 		int currentTemperatureUnit = Integer.valueOf(mSharedPreferences.getString(SettingsFragment.TEMPERATURE_LIST_PREFERENCE_KEY, "0"));
 		lengthUnit.set(Integer.valueOf(mSharedPreferences.getString(SettingsFragment.LENGTH_LIST_PREFERENCE_KEY, "0")));
 		if (currentWeather.get() == null || currentTemperatureUnit != temperatureUnit.get())
