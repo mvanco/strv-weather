@@ -268,6 +268,7 @@ public class MainActivity extends BaseBindingActivity<DashboardView, DashboardVi
 		{
 			return;
 		}
+
 		if (getBinding().activityMainDrawerLayout.isDrawerOpen(GravityCompat.START))
 		{
 			getSupportActionBar().setTitle(R.string.toolbar_title_weather);
